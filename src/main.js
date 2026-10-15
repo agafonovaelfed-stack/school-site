@@ -444,7 +444,7 @@ function renderSlide() {
   let visual, eyebrow, title, text, list;
   if (slide.type === "intro") {
     visual =
-      '<img src="/images/dream-house.png" alt="Мой дом мечты среди сосен" width="1536" height="1024">';
+      `<img src="${document.querySelector("#hero-image").src}" alt="Мой дом мечты среди сосен" width="1536" height="1024">`;
     eyebrow = "ШКОЛЬНЫЙ ПРОЕКТ · ПАША КАРАСЬ";
     title = 'Мой дом <span class="serif-accent">мечты.</span>';
     text =

@@ -1,7 +1,7 @@
 import { after, before, test } from "node:test";
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { setTimeout as delay } from "node:timers/promises";
 import { chromium } from "playwright";
 
@@ -217,7 +217,8 @@ test("the presentation runs all thirteen slides and supports keyboard, restart, 
   await page.locator(".site-header .presentation-trigger").click();
   await page.locator("#fullscreen-button").click();
   await page.waitForFunction(
-    () => document.fullscreenElement === document.documentElement,
+    () => document.fullscreenElement === document.documentElement &&
+      document.querySelector("#presentation-dialog").classList.contains("is-fullscreen"),
   );
   const fullscreenSize = await page
     .locator("#presentation-dialog")
@@ -294,6 +295,60 @@ test("layouts fit phone, computer, and board widths; touch navigation and dialog
   assert.equal(await page.locator("#slide-title").innerText(), "Гостиная");
   await page.locator('[data-close-dialog="presentation-dialog"]').click();
   await page.close();
+});
+
+test("root HTML renders the complete site offline with embedded CSS, font, images, and interactions", async () => {
+  const html = readFileSync("index.html", "utf8");
+  assert.equal(html, readFileSync("ready-site/index.html", "utf8"));
+  assert.equal(html, readFileSync("dist/index.html", "utf8"));
+  const context = await browser.newContext({ offline: true });
+  try {
+    const page = await context.newPage();
+    const errors = [];
+    const externalRequests = [];
+    page.on("pageerror", (error) => errors.push(error.message));
+    page.on("request", (request) => {
+      if (/^https?:/.test(request.url())) externalRequests.push(request.url());
+    });
+    // Render the downloaded document without a server or network access.
+    // This runner's managed browser blocks navigation to all file: URLs.
+    await page.setContent(html, { waitUntil: "load" });
+    await page.waitForSelector(".plan-room");
+    assert.equal(
+      await page.locator("body").evaluate((body) => getComputedStyle(body).fontFamily.includes("Manrope")),
+      true,
+    );
+    assert.equal(
+      await page.locator("html").evaluate((html) => getComputedStyle(html).backgroundColor),
+      "rgb(16, 15, 27)",
+    );
+    assert.equal(
+      await page.locator("#hero-image").evaluate((image) => image.complete && image.naturalWidth > 0),
+      true,
+    );
+    const fontLoaded = await page.evaluate(async () => {
+      await document.fonts.ready;
+      return [...document.fonts].some((font) => font.family === "Manrope" && font.status === "loaded");
+    });
+    assert.ok(fontLoaded);
+    assert.equal(await page.locator(".star").count(), 125);
+    await page.locator("#floor-tab-2").click();
+    await page.locator('[data-select-room="my-room"]').click();
+    await page.locator(".room-preview [data-open-room]").click();
+    assert.equal(await page.locator("#room-dialog-title").innerText(), "Моя комната");
+    await page.locator('[data-close-dialog="room-dialog"]').click();
+    await page.locator(".site-header .presentation-trigger").click();
+    await page.waitForFunction(() => {
+      const image = document.querySelector(".slide-visual img");
+      return image?.complete && image.naturalWidth > 0;
+    });
+    await page.keyboard.press("ArrowRight");
+    assert.equal(await page.locator("#slide-title").innerText(), "Гостиная");
+    assert.deepEqual(errors, []);
+    assert.deepEqual(externalRequests, []);
+  } finally {
+    await context.close();
+  }
 });
 
 test("star animation has a working pause control and respects reduced motion", async () => {

@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#100f1b" />
+    <meta
+      name="description"
+      content="Мой дом мечты — школьный проект Паши Карася. Исследуйте двухэтажный дом, его комнаты и идеи уютной, экологичной жизни."
+    />
+    <title>Мой дом мечты — Паша Карась</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <div class="cosmos" id="cosmos" aria-hidden="true">
+      <div class="nebula nebula-one"></div>
+      <div class="nebula nebula-two"></div>
+      <div class="star-layer" data-depth="0.4"></div>
+      <div class="star-layer" data-depth="0.8"></div>
+      <div class="star-layer" data-depth="1.4"></div>
+      <i class="shooting-star shooting-star-one"></i
+      ><i class="shooting-star shooting-star-two"></i>
+    </div>
+    <div class="side-watermark" aria-label="Автор: паша карась">
+      <span></span>паша карась<span></span>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Мой дом мечты — на главную">
+        <span class="brand-mark" data-icon="house"></span>
+        <span
+          >дом<span class="brand-second"
+            >мечты<span class="brand-dot">.</span></span
+          ></span
+        >
+      </a>
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <a href="#idea">Идея</a><a href="#explore">План дома</a
+        ><a href="#details">В деталях</a><a href="#values">Почему именно так</a>
+      </nav>
+      <div class="header-actions">
+        <button
+          class="motion-toggle icon-button"
+          id="motion-toggle"
+          aria-label="Приостановить анимацию звёзд"
+          aria-pressed="false"
+          title="Анимация звёзд"
+        >
+          <span data-icon="sparkles"></span>
+        </button>
+        <button class="presentation-trigger button button-small button-outline">
+          <span data-icon="presentation"></span><span>Презентация</span>
+        </button>
+        <button
+          class="menu-toggle icon-button"
+          id="menu-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Открыть меню"
+        >
+          <span data-icon="menu"></span>
+        </button>
+      </div>
+    </header>
+    <nav
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-label="Мобильная навигация"
+      hidden
+    >
+      <a href="#idea">Идея</a><a href="#explore">План дома</a
+      ><a href="#details">В деталях</a><a href="#values">Почему именно так</a>
+    </nav>
+
+    <main id="main">
+      <section class="hero section-wrap" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="status-dot"></span>ШКОЛЬНЫЙ ПРОЕКТ<span
+              class="eyebrow-divider"
+            ></span
+            >2026
+          </div>
+          <h1 id="hero-title">
+            Мой дом<br /><span class="dream-word"
+              >мечты<span class="title-star" aria-hidden="true">✧</span></span
+            >
+          </h1>
+          <p class="hero-subtitle">
+            Больше, чем стены.<br />Место, где хочется быть собой.
+          </p>
+          <p class="hero-description">
+            Светлый дом среди природы, уютные комнаты<br
+              class="desktop-break"
+            />
+            и немного звёздного волшебства. Приглашаю в гости!
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#explore"
+              >Заглянуть внутрь<span data-icon="arrow-up-right"></span></a
+            ><button class="hero-play presentation-trigger">
+              <span class="play-circle" data-icon="play"></span
+              ><span>Смотреть презентацию</span>
+            </button>
+          </div>
+          <div class="hero-author">
+            <span class="author-avatar">ПК</span
+            ><span>Придумал и представил<strong>Паша Карась</strong></span
+            ><span class="handdrawn-arrow" aria-hidden="true">↶</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <span class="visual-cross cross-one" aria-hidden="true">✦</span
+          ><span class="visual-cross cross-two" aria-hidden="true">✧</span>
+          <div class="house-image-wrap">
+            <img
+              class="house-image"
+              id="hero-image"
+              src="/images/dream-house.png"
+              alt="Современный двухэтажный дом с тёплым светом в больших окнах, деревянной террасой и садом среди сосен"
+              width="1536"
+              height="1024"
+              fetchpriority="high"
+            />
+          </div>
+          <div class="image-note note-top">
+            <span class="note-symbol" data-icon="sun"></span
+            ><span>Больше света.<br /><strong>Ближе к природе.</strong></span>
+          </div>
+          <div class="image-note note-bottom">
+            <span class="mini-dot"></span>Здесь начинается моя история
+          </div>
+          <div class="image-coordinate">
+            <span data-icon="compass"></span>ТАМ, ГДЕ ХОРОШО
+          </div>
+        </div>
+      </section>
+
+      <div class="stats section-wrap" aria-label="Дом в цифрах">
+        <div class="stat">
+          <span data-icon="layers"></span>
+          <div><strong>2</strong><span>этажа для жизни</span></div>
+        </div>
+        <div class="stat">
+          <span data-icon="grid"></span>
+          <div><strong>11</strong><span>продуманных пространств</span></div>
+        </div>
+        <div class="stat">
+          <span data-icon="ruler"></span>
+          <div>
+            <strong>240 <small>м²</small></strong
+            ><span>включая террасу</span>
+          </div>
+        </div>
+        <div class="stat">
+          <span data-icon="heart"></span>
+          <div><strong>∞</strong><span>поводов быть счастливым</span></div>
+        </div>
+      </div>
+
+      <section class="idea section-wrap" id="idea" aria-labelledby="idea-title">
+        <div>
+          <p class="eyebrow section-eyebrow">
+            <span class="section-number">01</span>С ЧЕГО ВСЁ НАЧАЛОСЬ
+          </p>
+          <h2 id="idea-title">
+            У каждого дома —<br />свой
+            <span class="serif-accent">характер.</span>
+          </h2>
+        </div>
+        <div class="idea-story">
+          <p>
+            Для меня дом мечты — это место, где всей семье хорошо. Где можно
+            собраться за большим столом, побыть в тишине или придумать что-то
+            новое.
+          </p>
+          <p>
+            Я представляю его за городом, рядом с лесом. В архитектуре — простые
+            формы, в интерьере — дерево, мягкие оттенки и много дневного света.
+            А главное — в каждой комнате есть смысл.
+          </p>
+          <div class="idea-tags">
+            <span><i data-icon="leaf"></i>Рядом с природой</span
+            ><span><i data-icon="sun"></i>Открыт свету</span
+            ><span><i data-icon="heart"></i>Для всей семьи</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="explore section-wrap"
+        id="explore"
+        aria-labelledby="explore-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">
+              <span class="section-number">02</span>ДОБРО ПОЖАЛОВАТЬ ВНУТРЬ
+            </p>
+            <h2 id="explore-title">
+              У каждой комнаты<br />своя
+              <span class="serif-accent">история.</span>
+            </h2>
+          </div>
+          <p class="heading-note">
+            Нажмите на комнату на плане —<br />расскажу, как всё устроено.<span
+              data-icon="corner-down-left"
+            ></span>
+          </p>
+        </div>
+        <div class="explorer-shell">
+          <div class="plan-side">
+            <div class="plan-toolbar">
+              <div class="floor-tabs" role="tablist" aria-label="Этаж дома">
+                <button
+                  id="floor-tab-1"
+                  class="floor-tab active"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="floor-panel"
+                  data-floor="1"
+                >
+                  Первый этаж<span>132 м²</span></button
+                ><button
+                  id="floor-tab-2"
+                  class="floor-tab"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="floor-panel"
+                  data-floor="2"
+                  tabindex="-1"
+                >
+                  Второй этаж<span>108 м²</span>
+                </button>
+              </div>
+              <span class="plan-direction" title="Север"
+                ><span>С</span><i data-icon="navigation"></i
+              ></span>
+            </div>
+            <div
+              class="floor-panel"
+              id="floor-panel"
+              role="tabpanel"
+              aria-labelledby="floor-tab-1"
+            >
+              <div class="floor-plan" id="floor-plan"></div>
+            </div>
+            <div class="plan-caption">
+              <span><i class="legend-square"></i>Выбранная комната</span
+              ><span>Авторская схема · не строительный чертёж</span>
+            </div>
+          </div>
+          <article
+            class="room-preview"
+            id="room-preview"
+            aria-live="polite"
+            aria-atomic="true"
+          ></article>
+        </div>
+      </section>
+
+      <section
+        class="details section-wrap"
+        id="details"
+        aria-labelledby="details-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">
+              <span class="section-number">03</span>МАЛЕНЬКИЕ ВЕЩИ. БОЛЬШОЕ
+              СЧАСТЬЕ.
+            </p>
+            <h2 id="details-title">
+              Мечта складывается<br />из
+              <span class="serif-accent">деталей.</span>
+            </h2>
+          </div>
+          <p class="section-description">
+            Не просто красивый интерьер.<br />Места для того, что я люблю.
+          </p>
+        </div>
+        <div class="detail-grid">
+          <button class="detail-card detail-reading" data-open-room="bedroom">
+            <span
+              class="detail-illustration"
+              id="reading-art"
+              aria-hidden="true"
+            ></span
+            ><span class="detail-card-body"
+              ><span class="detail-kicker">МОЙ ТИХИЙ УГОЛОК</span
+              ><strong>Ещё одну главу — и спать</strong
+              ><span>Кресло у окна, любимая книга<br />и дождь за стеклом.</span
+              ><i class="card-arrow" data-icon="arrow-up-right"></i
+            ></span>
+          </button>
+          <button class="detail-card detail-terrace" data-open-room="terrace">
+            <span
+              class="detail-illustration"
+              id="terrace-art"
+              aria-hidden="true"
+            ></span
+            ><span class="detail-card-body"
+              ><span class="detail-kicker">ВЕЧЕРА ПОД ОТКРЫТЫМ НЕБОМ</span
+              ><strong>Ближе к звёздам</strong
+              ><span
+                >Терраса, тёплый плед и разговоры,<br />которые не хочется
+                заканчивать.</span
+              ><i class="card-arrow" data-icon="arrow-up-right"></i
+            ></span>
+          </button>
+          <button class="detail-card detail-creative" data-open-room="my-room">
+            <span
+              class="detail-illustration"
+              id="creative-art"
+              aria-hidden="true"
+            ></span
+            ><span class="detail-card-body"
+              ><span class="detail-kicker">ПРОСТРАНСТВО ДЛЯ ИДЕЙ</span
+              ><strong>Здесь рождается новое</strong
+              ><span
+                >Большой стол, мои проекты<br />и место для вдохновения.</span
+              ><i class="card-arrow" data-icon="arrow-up-right"></i
+            ></span>
+          </button>
+        </div>
+      </section>
+
+      <section
+        class="values section-wrap"
+        id="values"
+        aria-labelledby="values-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">
+              <span class="section-number">04</span>КРАСИВО. УДОБНО. ОСМЫСЛЕННО.
+            </p>
+            <h2 id="values-title">
+              Дом, который<br /><span class="serif-accent">заботится.</span>
+            </h2>
+          </div>
+          <p class="section-description">
+            Я мечтаю о доме, в котором<br />продуман не только внешний вид.
+          </p>
+        </div>
+        <div class="values-grid">
+          <article>
+            <span class="value-icon" data-icon="leaf"></span
+            ><span class="value-number">01 /</span>
+            <h3>Бережно к природе</h3>
+            <p>
+              Солнечные панели помогают вырабатывать электричество, хорошее
+              утепление сохраняет тепло, а дождевая вода собирается для полива
+              сада.
+            </p>
+          </article>
+          <article>
+            <span class="value-icon" data-icon="sliders"></span
+            ><span class="value-number">02 /</span>
+            <h3>Умный в мелочах</h3>
+            <p>
+              Свет включается по движению, температура регулируется в каждой
+              комнате. Датчики дыма и протечки заранее предупреждают об
+              опасности.
+            </p>
+          </article>
+          <article>
+            <span class="value-icon" data-icon="users"></span
+            ><span class="value-number">03 /</span>
+            <h3>Удобный для всех</h3>
+            <p>
+              Широкие проходы, вход без ступенек и нескользкие полы. На первом
+              этаже кабинет можно превратить в спальню, если в семье изменятся
+              потребности.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing section-wrap" aria-labelledby="closing-title">
+        <div class="closing-star" aria-hidden="true">✧</div>
+        <span class="eyebrow">МЕЧТАТЬ — ЗНАЧИТ ДЕЛАТЬ ПЕРВЫЙ ШАГ</span>
+        <h2 id="closing-title">
+          Когда-нибудь я открою<br />дверь в
+          <span class="serif-accent">этот дом.</span>
+        </h2>
+        <p>
+          А пока он начинается здесь — с идеи,<br />воображения и этого проекта.
+        </p>
+        <button class="button button-primary presentation-trigger">
+          <span data-icon="play"></span>Начать презентацию<span
+            data-icon="arrow-up-right"
+          ></span>
+        </button>
+      </section>
+    </main>
+    <footer class="site-footer section-wrap">
+      <a class="footer-brand" href="#home">дом мечты<span>.</span></a>
+      <p>Школьный проект · Паша Карась · 2026</p>
+      <a class="back-top" href="#home"
+        >К звёздам<span data-icon="arrow-up"></span
+      ></a>
+    </footer>
+
+    <dialog
+      class="room-dialog"
+      id="room-dialog"
+      aria-labelledby="room-dialog-title"
+    >
+      <button
+        class="dialog-close icon-button"
+        data-close-dialog="room-dialog"
+        aria-label="Закрыть описание комнаты"
+      >
+        <span data-icon="x"></span>
+      </button>
+      <div id="room-dialog-content"></div>
+    </dialog>
+    <dialog
+      class="presentation-dialog"
+      id="presentation-dialog"
+      aria-labelledby="slide-title"
+    >
+      <div class="presentation-top">
+        <span class="presentation-label"
+          ><i data-icon="house"></i>МОЙ ДОМ МЕЧТЫ</span
+        >
+        <div>
+          <button
+            class="icon-button"
+            id="fullscreen-button"
+            aria-label="Развернуть на весь экран"
+          >
+            <span data-icon="expand"></span></button
+          ><button
+            class="icon-button"
+            data-close-dialog="presentation-dialog"
+            aria-label="Закрыть презентацию"
+          >
+            <span data-icon="x"></span>
+          </button>
+        </div>
+      </div>
+      <div class="slide-content" id="slide-content" aria-live="polite"></div>
+      <div class="presentation-bottom">
+        <span id="slide-counter"></span>
+        <div
+          class="slide-progress"
+          id="slide-progress"
+          aria-label="Прогресс презентации"
+        ></div>
+        <div class="slide-navigation">
+          <button
+            class="icon-button"
+            id="previous-slide"
+            aria-label="Предыдущий слайд"
+          >
+            <span data-icon="arrow-left"></span></button
+          ><button class="button button-primary" id="next-slide">
+            Далее<span data-icon="arrow-right"></span>
+          </button>
+        </div>
+      </div>
+      <span class="presentation-hint"
+        >← → переключить слайд <span>·</span> Esc выйти</span
+      >
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
